@@ -31,3 +31,44 @@ int main(){
 }
 // b3 is a pointer pointing to heap
 ```
+
+#### Copy Constrcutor using shared pointer
+```cpp
+#include <iostream>
+using namespace std;
+
+class Base{
+public:
+    Base(){
+        cout<<"calling default constructor..."<<endl;
+    }
+    Base(const Base& obj){
+        cout<<&obj<<endl;
+        cout<<"calling copy constructor..."<<endl;
+    }
+    ~Base(){
+        cout<<"calling destructor..."<<endl;
+    }
+};
+
+
+int main(){
+    shared_ptr<Base> b1 = make_shared<Base>();
+    cout<<b1<<endl; // heap address-> address of object
+    cout<<&b1<<endl; // stack address-> address of pointer
+    {
+        // ❌ DOES NOT call copy constructor
+        shared_ptr<Base> b2 = b1; // same address as b2 just another reference
+        cout<<b2<<endl;
+        // destructor won't be called as there is still one reference left
+    }
+    {
+        shared_ptr<Base> b2 = make_shared<Base>(*b1);
+        cout<<b1<<" "<<b2<<endl;
+        // both are in different address of heap
+        // b2 has one reference
+        // b1 also has one reference
+        // b2 destrcutor will be called after this scope
+    }
+}
+```
