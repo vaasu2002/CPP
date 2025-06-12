@@ -18,7 +18,8 @@ public:
 int main(){
     // stack copping
     Base b1;
-    Base b2 = b1;
+    Base b2 = b1; // Base b2(b1); SAME
+    cout<<&b1<<" "<<&b2<<endl; // different addresses
 
     // heap copying  
     Base* b3 = new Base();
