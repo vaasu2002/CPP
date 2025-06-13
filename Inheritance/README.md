@@ -42,3 +42,28 @@ delete ptr; //
 - Runtime polymorphism kicks in
 - Looks at the actual object type (Derived)
 - Calls Derived::~Derived() first, then Base::~Base()
+
+
+```cpp
+#include <iostream>
+using namespace std;
+
+class Base {
+public:
+    virtual ~Base() { cout << "Base destructor\n"; } // virtual imp here
+};
+
+class Derived final : public Base {
+public:
+    int* arr = new int[4];
+    ~Derived() override {
+        cout << "Derived destructor\n";
+        // no need for delete[] arr
+    }
+};
+
+int main() {
+    unique_ptr<Base> b = make_unique<Derived>();
+    return 0;
+}
+```
