@@ -67,4 +67,14 @@ int main() {
     // Base* b = new Derived();  // if we od this then we need delete[] arr
     return 0;
 }
+
+//Derived destructor
+Base destructor
+
+```
+
+
+
+```
+unique_ptr<int[]> arr = make_unique<int[]>(4);
 ```
