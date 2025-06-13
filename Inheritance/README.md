@@ -64,6 +64,7 @@ public:
 
 int main() {
     unique_ptr<Base> b = make_unique<Derived>();
+    // Base* b = new Derived();  // if we od this then we need delete[] arr
     return 0;
 }
 ```
