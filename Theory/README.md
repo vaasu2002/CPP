@@ -27,6 +27,7 @@ int main(){
     String str("Vaasu"); // Created...
     Entity e(str);
 }
+```
 ```cpp
 // "abc" is a string literal of type const char[4] (includes null terminator)
 // str is pointer to a pointer to a constant character array.
