@@ -3,7 +3,7 @@ class String{
 public:
     char* m_Data;
     uint32_t m_Size;
-    explicit String(const char* str){
+    String(const char* str){
         cout<<"Created..."<<endl;
         m_Size = strlen(str)+1; // one extra space for null termination
         m_Data = new char[m_Size];
@@ -24,6 +24,7 @@ public:
     };
 };
 int main(){
+    String str2 = "Vaasu"; // Created...
     String str("Vaasu"); // Created...
     Entity e(str);
 }
