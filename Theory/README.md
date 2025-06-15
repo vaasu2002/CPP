@@ -28,6 +28,7 @@ int main(){
     Entity e(str);
 }
 ```
+If we remove explicit from constrcutor we can use like this as well ---> String str = "Vaasu";
 ```cpp
 // "abc" is a string literal of type const char[4] (includes null terminator)
 // str is pointer to a pointer to a constant character array.
