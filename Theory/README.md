@@ -57,4 +57,11 @@ int main(){
 }
 ```
 
+```cpp
+void func(const char* str){
+    str = new char[4]; // can do
+
+    str[0] = 'v';   // cannot do coz its const char* str
+    *str = 'v'; // same as
+}
 ```
