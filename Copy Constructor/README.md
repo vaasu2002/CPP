@@ -1,3 +1,12 @@
+Copy Constructor Triggers
+A copy constructor is only called when:
+
+You pass an object by value.
+
+You return an object by value (unless elided).
+
+You initialize a new object using an existing one (e.g., MyClass b = a;).
+
 ```cpp
 Somethings(const Somethings& somethings) = delete; // Deleted copy constructor
 // No Copying Allowed
